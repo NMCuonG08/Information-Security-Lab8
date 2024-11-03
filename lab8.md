@@ -10,3 +10,26 @@ Ping OK ![image](https://github.com/user-attachments/assets/3d9543a7-f1c5-4291-9
   ![image](https://github.com/user-attachments/assets/3a01843e-4a82-4d65-b4e9-dd57a795bd04)
 
 ![image](https://github.com/user-attachments/assets/8bd09f2d-9c72-4582-b169-98b387cbd619)
+
+
+ex1. 
+
+![image](https://github.com/user-attachments/assets/d173e112-991a-45ec-90bc-fbc0a90d1170)
+
+exam: 
+![image](https://github.com/user-attachments/assets/79055f8a-4297-471e-ac8e-890062ceffaa)
+
+
+![image](https://github.com/user-attachments/assets/d58e2581-de58-465e-bbf7-39a7f0a93dc5)
+
+
+
+my code: 
+
+![image](https://github.com/user-attachments/assets/bd544065-df29-464a-bdf8-cf85b7e84614)
+
+exam:
+
+![image](https://github.com/user-attachments/assets/e7fca544-4821-40f6-9e40-0133e4ec7800)
+
+
