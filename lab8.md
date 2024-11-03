@@ -22,7 +22,53 @@ exam:
 
 ![image](https://github.com/user-attachments/assets/d58e2581-de58-465e-bbf7-39a7f0a93dc5)
 
+iptables -F
 
+Chức năng: Lệnh này "flush" (xóa) tất cả các luật (rules) trong các bảng của iptables.
+
+Mục đích: Dọn dẹp các luật hiện có để bắt đầu thiết lập từ đầu, giúp tránh xung đột hoặc ảnh hưởng từ các luật trước đó.
+
+2. iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+
+Chức năng: Cho phép các gói tin ICMP "echo-request" (thường dùng cho lệnh ping) được chấp nhận trong chuỗi (chain) INPUT.
+
+Mục đích: Cho phép máy tính nhận các gói tin ping từ bên ngoài để kiểm tra khả năng kết nối, ngay cả khi các loại truy cập khác bị chặn.
+
+3. iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+
+Chức năng: Cho phép các gói tin ICMP "echo-reply" (hồi đáp ping) được gửi ra ngoài trong chuỗi OUTPUT.
+
+Mục đích: Đảm bảo rằng máy có thể trả lời các yêu cầu ping từ bên ngoài.
+
+4. iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+Chức năng: Cho phép các gói tin vào có trạng thái ESTABLISHED hoặc RELATED trong chuỗi INPUT.
+
+Mục đích: Chấp nhận các kết nối đã được thiết lập và các kết nối liên quan. Giúp duy trì các phiên kết nối hiện tại mà không cần mở lại kết nối mỗi lần.
+
+5. iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+Chức năng: Cho phép các gói tin ra có trạng thái ESTABLISHED hoặc RELATED trong chuỗi OUTPUT.
+
+Mục đích: Đảm bảo rằng các kết nối hiện tại có thể tiếp tục gửi và nhận dữ liệu mà không bị gián đoạn.
+
+6. iptables -P INPUT DROP, iptables -P FORWARD DROP, iptables -P OUTPUT DROP
+
+Chức năng: Đặt chính sách mặc định cho các chuỗi INPUT, FORWARD, và OUTPUT là DROP (chặn).
+
+Mục đích: Chặn tất cả các loại truy cập ngoại trừ những gì được phép rõ ràng qua các luật ở trên (ví dụ: chỉ cho phép ping).
+
+7. iptables -A FORWARD -s 10.9.0.0/24 -d 172.16.10.110 -p tcp --dport 80 -j REJECT
+
+Chức năng: Chặn các gói tin từ dải IP 10.9.0.0/24 truy cập vào máy chủ 172.16.10.110 qua cổng 80 (HTTP).
+
+Mục đích: Ngăn không cho các máy tính trên subnet 10.9.0.0/24 truy cập vào máy chủ web nội bộ (iweb), giúp tăng cường bảo mật.
+
+8. iptables -A FORWARD -s 172.16.10.0/24 -d 10.9.0.10 -j REJECT
+
+Chức năng: Chặn các gói tin từ subnet 172.16.10.0/24 đến địa chỉ IP 10.9.0.10.
+
+Mục đích: Ngăn các máy tính trên subnet 172.16.10.0/24 truy cập vào máy chủ badsite, đảm bảo an toàn khi badsite được phát hiện có mã độc.
 
 my code: 
 
@@ -31,5 +77,19 @@ my code:
 exam:
 
 ![image](https://github.com/user-attachments/assets/e7fca544-4821-40f6-9e40-0133e4ec7800)
+
+
+my code  
+
+![image](https://github.com/user-attachments/assets/5522938c-d562-4962-90ac-b18ce67fb2bf)
+
+
+![image](https://github.com/user-attachments/assets/29215005-14e3-4958-9f70-4ab6e4d88271)
+
+
+
+
+
+
 
 
