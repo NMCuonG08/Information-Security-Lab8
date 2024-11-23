@@ -181,6 +181,62 @@ plt.show()
 
 
 
+# Replace character
+
+```python
+# Ciphertext ban đầu
+ciphertext = """
+THVVWCZTQ!
+CZ WECQ YIAQQ, LFN JCII IVAHZ WEV DCPPVHVZYV MVWJVVZ VZYHLOWCFZ AZD
+ANWEVZWCYAWCFZ. WECQ RVQQATV CQ VZYHLOWVD JCWE A BVHL CZQVYNHV
+VZYHLOWCFZ QYEVRV. CDVAIIL, AZ VZYHLOWCFZ QYEVRV QEFNID AIIFJ FZIL
+ANWEFHCGVD OAHWCVQ, JEF XZFJ WEV XVL, WF HVAD WEV RVQQATV. EFJVBVH,
+LFN SNQW HVAD WEV RVQQATV JCWEFNW XZFJCZT WEV XVL. EVZYV, WEV
+VZYHLOWCFZ QYEVRV CQ CZQVYNHV.
+"""
+
+
+
+# Bản đồ thay thế thủ công (dựa trên tần suất)
+mapping = {
+    'V': 'E', 
+    'W':'T',
+
+}
+
+# Hàm thay thế thủ công các chữ cái trong ciphertext, giữ nguyên dấu câu
+def manual_substitution(text, mapping):
+    decoded_text = []
+    for char in text:
+        if char.upper() in mapping:  # Nếu ký tự có trong bản đồ
+            # Kiểm tra xem ký tự có phải là chữ hoa không
+            if char.isupper():
+                decoded_text.append(mapping[char.upper()])
+            else:
+                decoded_text.append(mapping[char.upper()].lower())
+        elif char.isalpha():
+            # Nếu ký tự là chữ cái nhưng không có trong bản đồ, thay bằng dấu "."
+            decoded_text.append('.')
+        else:
+            # Giữ nguyên các ký tự không phải chữ cái (dấu câu, khoảng trắng)
+            decoded_text.append(char)
+    
+    return ''.join(decoded_text)
+
+# Áp dụng thay thế thủ công
+decoded_text = manual_substitution(ciphertext, mapping)
+
+# In kết quả đã được thay thế
+print("Decoded Text:")
+print(decoded_text)
+
+```
+
+
+
+
+
+
 
 
 
