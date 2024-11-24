@@ -15,14 +15,14 @@ openssl aes-128-cbc -d -in aes128-cbc.enc -out res.txt -K 00112233445566778899aa
 cp /mnt/c/WSL/original.bmp .
 ```
 
+## Mở file ảnh
+
 ```
 eog original.bmp
 ```
 ![image](https://github.com/user-attachments/assets/c0df85e7-48fc-41ae-88c4-dbd77630c8fe)
 
-```bash
- dd if=original.bmp of=origin-ecb.bmp bs=54 seek=1 conv=notrunc
-```
+
 
 ## Thay thế 54 bytes header
 
