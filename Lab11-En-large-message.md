@@ -23,3 +23,17 @@ eog original.bmp
 ```bash
  dd if=original.bmp of=origin-ecb.bmp bs=54 seek=1 conv=notrunc
 ```
+
+## Thay thế 54 bytes header
+
+```bash
+dd if=header.bin of=origin-ecb-fixed.bmp bs=1 count=54
+dd if=origin-ecb.bmp of=origin-ecb-fixed.bmp bs=1 skip=54 seek=54 conv=notrunc
+```
+
+
+## View 54 bytes 
+
+```bash
+xxd -l 54 original.bmp
+```
